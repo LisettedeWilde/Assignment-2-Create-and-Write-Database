@@ -1,6 +1,6 @@
 USE SuperheroesDb;
 
-INSERT INTO Power (Name, Description)
+INSERT INTO Powers (Name, Description)
 VALUES 
 ('Enhanced strength', 'The hero possesses a level of strength beyond that of the peak members of their specie'),
 ('Invisibility', 'The power to render oneself unable to be seen.'),

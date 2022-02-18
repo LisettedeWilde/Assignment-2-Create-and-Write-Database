@@ -1,7 +1,7 @@
 USE SuperheroesDb
 
-ALTER TABLE Assistant
+ALTER TABLE Assistants
 ADD SuperheroID int;
 
-ALTER TABLE Assistant
-ADD FOREIGN KEY (SuperheroID) REFERENCES Superhero(ID); 
+ALTER TABLE Assistants
+ADD FOREIGN KEY (SuperheroID) REFERENCES Superheroes(ID); 

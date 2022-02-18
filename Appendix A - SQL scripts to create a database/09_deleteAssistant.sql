@@ -1,3 +1,3 @@
 USE SuperheroesDb;
 
-DELETE FROM Assistant WHERE Name='Dick Grayson';
+DELETE FROM Assistants WHERE Name='Dick Grayson';

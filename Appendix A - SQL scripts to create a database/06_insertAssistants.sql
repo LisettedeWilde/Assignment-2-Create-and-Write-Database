@@ -1,6 +1,6 @@
 USE SuperheroesDb;
 
-INSERT INTO Assistant (Name, SuperheroID)
+INSERT INTO Assistants (Name, SuperheroID)
 VALUES 
 ('Dick Grayson', 2),
 ('James Barnes', 2),
