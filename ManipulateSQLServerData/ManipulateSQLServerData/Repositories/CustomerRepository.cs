@@ -121,5 +121,46 @@ namespace ManipulateSQLServerData.Repositories
             }
             return success;
         }
+
+        public Dictionary<string, int> GetNumberOfCustomersPerCountry()
+        {
+            Dictionary<string, int> countriesCount = new Dictionary<string, int>();
+            string sql = "SELECT Country, count(Country) " +
+                "FROM Customer " +
+                "GROUP BY Country " +
+                "ORDER BY 2 DESC";
+            try
+            {
+                // Connect
+                using (SqlConnection connection = new SqlConnection(ConnectionStringHelper.GetConnectionString()))
+                {
+                    connection.Open();
+
+                    // Make a command
+                    using (SqlCommand cmd = new SqlCommand(sql, connection))
+                    {
+                        // Reader
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                // Handle result
+                                if (countriesCount.ContainsKey(reader.GetString(0)))
+                                    countriesCount[reader.GetString(0)] = reader.GetInt32(1);
+                                else
+                                {
+                                    countriesCount.Add(reader.GetString(0), reader.GetInt32(1));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return countriesCount;
+        }
     }
 }

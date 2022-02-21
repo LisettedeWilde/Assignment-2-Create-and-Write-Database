@@ -10,7 +10,7 @@ namespace ManipulateSQLServerData
         static void Main(string[] args)
         {
             ICustomerRepository repository = new CustomerRepository();
-            TestInsert(repository);
+            TestGetCountriesCount(repository);
         }
 
         static void TestSelectAll(ICustomerRepository repository)
@@ -41,6 +41,16 @@ namespace ManipulateSQLServerData
             else
             {
                 Console.WriteLine("Failed to add customer to database");
+            }
+        }
+
+        static void TestGetCountriesCount(ICustomerRepository repository)
+        {
+            Dictionary<string, int> result = repository.GetNumberOfCustomersPerCountry();
+
+            foreach (KeyValuePair<string, int> country in result)
+            {
+                Console.WriteLine($"{country.Key} {country.Value}");
             }
         }
 
