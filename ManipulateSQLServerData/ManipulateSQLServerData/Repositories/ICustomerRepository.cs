@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ManipulateSQLServerData.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace ManipulateSQLServerData.Repositories
 {
     public interface ICustomerRepository
     {
+        public List<Customer> GetAllCustomers();
     }
 }
