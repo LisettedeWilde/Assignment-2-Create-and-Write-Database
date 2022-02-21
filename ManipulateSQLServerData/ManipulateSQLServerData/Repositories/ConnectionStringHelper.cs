@@ -12,9 +12,9 @@ namespace ManipulateSQLServerData.Repositories
         public static string GetConnectionString()
         {
             SqlConnectionStringBuilder connectionStringBuilder = new SqlConnectionStringBuilder();
-            connectionStringBuilder.DataSource = "CEREBRO"; // name of sql server
+            connectionStringBuilder.DataSource = "CEREBRO";
             connectionStringBuilder.InitialCatalog = "Chinook";
-            connectionStringBuilder.IntegratedSecurity = true; // use windows builtin
+            connectionStringBuilder.IntegratedSecurity = true;
             connectionStringBuilder.TrustServerCertificate = true;
             return connectionStringBuilder.ConnectionString;
         }

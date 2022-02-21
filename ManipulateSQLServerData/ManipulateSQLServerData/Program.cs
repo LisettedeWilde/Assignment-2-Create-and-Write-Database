@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ManipulateSQLServerData.Models;
+using System;
+using System.Collections.Generic;
 
 namespace ManipulateSQLServerData
 {
