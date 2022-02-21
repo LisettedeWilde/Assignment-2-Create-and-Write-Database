@@ -2306,23 +2306,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Lisette\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Murat\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "X:\\Noroff\\Noroff Assignments\\Assignments - Backend .NET\\Assignment 2 - Database\\Assignment-2-Create-and-Write-Database\\ManipulateSQLServerData\\ManipulateSQLServerData\\ManipulateSQLServerData.csproj",
+      "projectUniqueName": "C:\\Users\\Murat\\Source\\Repos\\Assignment-2-Create-and-Write-Database\\ManipulateSQLServerData\\ManipulateSQLServerData\\ManipulateSQLServerData.csproj",
       "projectName": "ManipulateSQLServerData",
-      "projectPath": "X:\\Noroff\\Noroff Assignments\\Assignments - Backend .NET\\Assignment 2 - Database\\Assignment-2-Create-and-Write-Database\\ManipulateSQLServerData\\ManipulateSQLServerData\\ManipulateSQLServerData.csproj",
-      "packagesPath": "C:\\Users\\Lisette\\.nuget\\packages\\",
-      "outputPath": "X:\\Noroff\\Noroff Assignments\\Assignments - Backend .NET\\Assignment 2 - Database\\Assignment-2-Create-and-Write-Database\\ManipulateSQLServerData\\ManipulateSQLServerData\\obj\\",
+      "projectPath": "C:\\Users\\Murat\\Source\\Repos\\Assignment-2-Create-and-Write-Database\\ManipulateSQLServerData\\ManipulateSQLServerData\\ManipulateSQLServerData.csproj",
+      "packagesPath": "C:\\Users\\Murat\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Murat\\Source\\Repos\\Assignment-2-Create-and-Write-Database\\ManipulateSQLServerData\\ManipulateSQLServerData\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Lisette\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Murat\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
