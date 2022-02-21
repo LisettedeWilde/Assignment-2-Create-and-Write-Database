@@ -15,10 +15,8 @@ namespace ManipulateSQLServerData.Models
         public string City { get; set; }
         public string State { get; set; }
         public string Country { get; set; }
-#nullable enable
-        public string? PostalCode { get; set; }
-        public string? Phone { get; set; }
-#nullable disable
+        public string PostalCode { get; set; }
+        public string Phone { get; set; }
         public string Email { get; set; }
     }
 }
