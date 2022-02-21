@@ -92,5 +92,34 @@ namespace ManipulateSQLServerData.Repositories
             }
             return customer;
         }
+
+        public bool AddNewCustomer(Customer customer)
+        {
+            bool success = false;
+            string sql = "INSERT INTO Customer(FirstName, LastName, Country, PostalCode, Phone, Email) " +
+                "VALUES(@FirstName,@LastName,@Country,@PostalCode,@Phone,@Email)";
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionStringHelper.GetConnectionString()))
+                {
+                    connection.Open();
+                    using (SqlCommand cmd = new SqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@FirstName", customer.FirstName);
+                        cmd.Parameters.AddWithValue("@LastName", customer.LastName);
+                        cmd.Parameters.AddWithValue("@Country", customer.Country);
+                        cmd.Parameters.AddWithValue("@PostalCode", customer.PostalCode);
+                        cmd.Parameters.AddWithValue("@Phone", customer.Phone);
+                        cmd.Parameters.AddWithValue("@Email", customer.Email);
+                        success = cmd.ExecuteNonQuery() > 0 ? true : false;
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return success;
+        }
     }
 }

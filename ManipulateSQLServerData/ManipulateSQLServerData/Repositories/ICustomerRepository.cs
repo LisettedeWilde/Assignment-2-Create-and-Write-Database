@@ -11,5 +11,6 @@ namespace ManipulateSQLServerData.Repositories
     {
         public List<Customer> GetAllCustomers();
         public Customer GetCustomerByName(string fName, string lName);
+        public bool AddNewCustomer(Customer customer);
     }
 }

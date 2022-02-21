@@ -10,7 +10,7 @@ namespace ManipulateSQLServerData
         static void Main(string[] args)
         {
             ICustomerRepository repository = new CustomerRepository();
-            TestSelectByName(repository);
+            TestInsert(repository);
         }
 
         static void TestSelectAll(ICustomerRepository repository)
@@ -21,6 +21,27 @@ namespace ManipulateSQLServerData
         static void TestSelectByName(ICustomerRepository repository)
         {
             PrintCustomer(repository.GetCustomerByName("Tim", "Goyer"));
+        }
+
+        static void TestInsert(ICustomerRepository repository)
+        {
+            Customer test = new Customer()
+            {
+                FirstName = "Harry",
+                LastName = "Potter",
+                Country = "Britain",
+                PostalCode = "5208",
+                Phone = "06 12345678",
+                Email = "wizard@apple.com"
+            };
+            if (repository.AddNewCustomer(test))
+            {
+                Console.WriteLine("Successfully added customer to database");
+            }
+            else
+            {
+                Console.WriteLine("Failed to add customer to database");
+            }
         }
 
         static void PrintCustomers(IEnumerable<Customer> customers)
