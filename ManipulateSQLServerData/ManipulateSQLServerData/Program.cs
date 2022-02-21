@@ -10,12 +10,17 @@ namespace ManipulateSQLServerData
         static void Main(string[] args)
         {
             ICustomerRepository repository = new CustomerRepository();
-            TestSelectAll(repository);
+            TestSelectByName(repository);
         }
 
         static void TestSelectAll(ICustomerRepository repository)
         {
             PrintCustomers(repository.GetAllCustomers());
+        }
+
+        static void TestSelectByName(ICustomerRepository repository)
+        {
+            PrintCustomer(repository.GetCustomerByName("Tim", "Goyer"));
         }
 
         static void PrintCustomers(IEnumerable<Customer> customers)

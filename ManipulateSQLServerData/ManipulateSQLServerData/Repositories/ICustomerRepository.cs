@@ -10,5 +10,6 @@ namespace ManipulateSQLServerData.Repositories
     public interface ICustomerRepository
     {
         public List<Customer> GetAllCustomers();
+        public Customer GetCustomerByName(string fName, string lName);
     }
 }
