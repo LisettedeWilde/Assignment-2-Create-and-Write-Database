@@ -145,12 +145,7 @@ namespace ManipulateSQLServerData.Repositories
                             while (reader.Read())
                             {
                                 // Handle result
-                                if (countriesCount.ContainsKey(reader.GetString(0)))
-                                    countriesCount[reader.GetString(0)] = reader.GetInt32(1);
-                                else
-                                {
-                                    countriesCount.Add(reader.GetString(0), reader.GetInt32(1));
-                                }
+                                countriesCount.Add(reader.GetString(0), reader.GetInt32(1));
                             }
                         }
                     }
@@ -161,6 +156,53 @@ namespace ManipulateSQLServerData.Repositories
                 Console.WriteLine(ex.Message);
             }
             return countriesCount;
+        }
+
+        public string GetFavoriteGenre(int id)
+        {
+            // TODO: fix sql so that both genres are displayed in case of a tie
+            string result = "";
+            string sql = "SELECT TOP 1 Customer.FirstName AS firstName, Customer.LastName AS lastName, Genre.Name AS genre, COUNT(Genre.Name) AS genreCount " +
+                "FROM Customer " +
+                "INNER JOIN Invoice " +
+                "ON Customer.CustomerId = Invoice.CustomerId " +
+                "INNER JOIN InvoiceLine " +
+                "ON Invoice.InvoiceId = InvoiceLine.InvoiceId " +
+                "INNER JOIN Track " +
+                "ON InvoiceLine.TrackId = Track.TrackId " +
+                "INNER JOIN Genre " +
+                "ON Track.GenreId = Genre.GenreId " +
+                "WHERE Customer.CustomerId = @CustomerId " +
+                "GROUP BY Customer.FirstName, Customer.LastName, Genre.Name " +
+                "ORDER BY COUNT(Genre.Name) DESC";
+            try
+            {
+                // Connect
+                using (SqlConnection connection = new SqlConnection(ConnectionStringHelper.GetConnectionString()))
+                {
+                    connection.Open();
+
+                    // Make a command
+                    using (SqlCommand cmd = new SqlCommand(sql, connection))
+                    {
+                        cmd.Parameters.AddWithValue("@CustomerId", id);
+                        // Reader
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                // Handle result
+                                result += reader.GetString(0) + " " + reader.GetString(1) + " " + reader.GetString(2);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return result;
         }
     }
 }

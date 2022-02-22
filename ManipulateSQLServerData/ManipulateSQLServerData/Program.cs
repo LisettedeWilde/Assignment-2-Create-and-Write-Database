@@ -10,7 +10,7 @@ namespace ManipulateSQLServerData
         static void Main(string[] args)
         {
             ICustomerRepository repository = new CustomerRepository();
-            TestGetCountriesCount(repository);
+            TestGetFavoriteGenre(repository);
         }
 
         static void TestSelectAll(ICustomerRepository repository)
@@ -52,6 +52,11 @@ namespace ManipulateSQLServerData
             {
                 Console.WriteLine($"{country.Key} {country.Value}");
             }
+        }
+
+        static void TestGetFavoriteGenre(ICustomerRepository repository)
+        {
+            Console.WriteLine(repository.GetFavoriteGenre(1));
         }
 
         static void PrintCustomers(IEnumerable<Customer> customers)
