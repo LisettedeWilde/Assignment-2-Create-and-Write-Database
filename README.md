@@ -26,7 +26,7 @@ The methods can be used for the following:
 4. Read page of customers. This method returns limit value of customers, starting from offset value.
 5. Create new customer to the database. Add following fields to new customer: first name, last name, country, postal code, phone number and email. 
 6. Update existing user in database. Update selected customer's phone number and email address. This method returns updated customer if customer is successifully updated, or null if customer update failed.
-7. Read coutries with amount of customers from database. This method returns all countries with customers in it, along with amount of customers, in descending order (highest to lowest).
+7. Read countries with amount of customers from database. This method returns all countries with customers in it, along with amount of customers, in descending order (highest to lowest).
 8. Read highest spending customers from database. This method returns highest spending customers in descending order (highest to lowest).
 9. Read selected customer's most popular genre. This method returns selected customer's most popular genre. In case of tie, return both of genres.
 
