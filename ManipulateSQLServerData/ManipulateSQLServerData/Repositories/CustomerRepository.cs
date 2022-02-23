@@ -160,9 +160,12 @@ namespace ManipulateSQLServerData.Repositories
 
         public string GetFavoriteGenre(int id)
         {
-            // TODO: fix sql so that both genres are displayed in case of a tie
             string result = "";
-            string sql = "SELECT TOP 1 Customer.FirstName AS firstName, Customer.LastName AS lastName, Genre.Name AS genre, COUNT(Genre.Name) AS genreCount " +
+            string genres = "";
+            int max = 0;
+            Customer temp = new Customer();
+
+            string sql = "SELECT Customer.FirstName AS firstName, Customer.LastName AS lastName, Genre.Name AS genre, COUNT(Genre.Name) AS genreCount " +
                 "FROM Customer " +
                 "INNER JOIN Invoice " +
                 "ON Customer.CustomerId = Invoice.CustomerId " +
@@ -192,8 +195,22 @@ namespace ManipulateSQLServerData.Repositories
                             while (reader.Read())
                             {
                                 // Handle result
-                                result += reader.GetString(0) + " " + reader.GetString(1) + " " + reader.GetString(2);
+                                temp.FirstName = reader.GetString(0);
+                                temp.LastName = reader.GetString(1);
+                                // max is 0 in the first iteration
+                                if (max == 0)
+                                {
+                                    genres += " " + reader.GetString(2);
+                                    // set max equal to highest genre count
+                                    max = reader.GetInt32(3);
+                                }
+                                // check if there is another genre equal with the highest count
+                                else if (max == reader.GetInt32(3))
+                                    genres += " " + reader.GetString(2);
+                                else
+                                    break;
                             }
+                            result += temp.FirstName + " " + temp.LastName + genres;
                         }
                     }
                 }

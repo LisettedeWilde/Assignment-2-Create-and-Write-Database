@@ -56,7 +56,7 @@ namespace ManipulateSQLServerData
 
         static void TestGetFavoriteGenre(ICustomerRepository repository)
         {
-            Console.WriteLine(repository.GetFavoriteGenre(1));
+            Console.WriteLine(repository.GetFavoriteGenre(12));
         }
 
         static void PrintCustomers(IEnumerable<Customer> customers)
