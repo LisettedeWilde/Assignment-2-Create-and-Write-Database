@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "f1a25947-40e8-4ed6-8171-90782e2ab51f": {
+      "ProjectGuid": "f1a25947-40e8-4ed6-8171-90782e2ab51f",
+      "DisplayName": "ManipulateSQLServerData",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
