@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Murat\\Source\\Repos\\Assignment-2-Create-and-Write-Database\\ManipulateSQLServerData\\ManipulateSQLServerData\\ManipulateSQLServerData.csproj": {}
+    "C:\\Users\\wildb\\Documents\\Noroff\\Noroff Assignments\\Assignment 2 - Databases\\Assignment-2-Create-and-Write-Database\\ManipulateSQLServerData\\ManipulateSQLServerData\\ManipulateSQLServerData.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Murat\\Source\\Repos\\Assignment-2-Create-and-Write-Database\\ManipulateSQLServerData\\ManipulateSQLServerData\\ManipulateSQLServerData.csproj": {
+    "C:\\Users\\wildb\\Documents\\Noroff\\Noroff Assignments\\Assignment 2 - Databases\\Assignment-2-Create-and-Write-Database\\ManipulateSQLServerData\\ManipulateSQLServerData\\ManipulateSQLServerData.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Murat\\Source\\Repos\\Assignment-2-Create-and-Write-Database\\ManipulateSQLServerData\\ManipulateSQLServerData\\ManipulateSQLServerData.csproj",
+        "projectUniqueName": "C:\\Users\\wildb\\Documents\\Noroff\\Noroff Assignments\\Assignment 2 - Databases\\Assignment-2-Create-and-Write-Database\\ManipulateSQLServerData\\ManipulateSQLServerData\\ManipulateSQLServerData.csproj",
         "projectName": "ManipulateSQLServerData",
-        "projectPath": "C:\\Users\\Murat\\Source\\Repos\\Assignment-2-Create-and-Write-Database\\ManipulateSQLServerData\\ManipulateSQLServerData\\ManipulateSQLServerData.csproj",
-        "packagesPath": "C:\\Users\\Murat\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Murat\\Source\\Repos\\Assignment-2-Create-and-Write-Database\\ManipulateSQLServerData\\ManipulateSQLServerData\\obj\\",
+        "projectPath": "C:\\Users\\wildb\\Documents\\Noroff\\Noroff Assignments\\Assignment 2 - Databases\\Assignment-2-Create-and-Write-Database\\ManipulateSQLServerData\\ManipulateSQLServerData\\ManipulateSQLServerData.csproj",
+        "packagesPath": "C:\\Users\\wildb\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\wildb\\Documents\\Noroff\\Noroff Assignments\\Assignment 2 - Databases\\Assignment-2-Create-and-Write-Database\\ManipulateSQLServerData\\ManipulateSQLServerData\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Murat\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\wildb\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -60,7 +64,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
         }
       }
     }

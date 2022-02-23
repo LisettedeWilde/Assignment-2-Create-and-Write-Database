@@ -57,7 +57,10 @@ namespace ManipulateSQLServerData.Repositories
         {
             List<Customer> customers = new List<Customer>();
             // string sql = "SELECT * FROM Customer AS Page SKIP (@Offset) LIMIT(@limit)";
-            string sql = "SELECT * FROM Customer";
+            string sql = "SELECT * FROM Customer " +
+                "ORDER BY Customer.CustomerId " +
+                "OFFSET (@offset) ROWS " +
+                "FETCH NEXT (@limit) ROWS ONLY";
             try
             {
                 //connect
@@ -104,8 +107,7 @@ namespace ManipulateSQLServerData.Repositories
         {
             bool success = false;
             string sql = "UPDATE Customer " +
-                         "SET FirstName=@FirstName,LastName=@LastName,Company=@Company,Address=@Address,City=@City,State=@State" +
-                         ",Country=@Country,PostalCode=@PostalCode,Phone=@Phone,Fax=@Fax,Email=@Email,SupportRepId=@SupportRepId";
+                         "SET FirstName=@FirstName,LastName=@LastName, Country=@Country, PostalCode=@PostalCode,Phone=@Phone, Email=@Email";
             try
             {
                 //connection
@@ -120,16 +122,10 @@ namespace ManipulateSQLServerData.Repositories
                         //handle result
                         cmd.Parameters.AddWithValue("@FirstName", customer.FirstName);
                         cmd.Parameters.AddWithValue("@LastName", customer.LastName);
-                        cmd.Parameters.AddWithValue("@Company", customer.Company);
-                        cmd.Parameters.AddWithValue("@Address", customer.Address);
-                        cmd.Parameters.AddWithValue("@City", customer.City);
-                        cmd.Parameters.AddWithValue("@State", customer.State);
                         cmd.Parameters.AddWithValue("@Country", customer.Country);
                         cmd.Parameters.AddWithValue("@PostalCode", customer.PostalCode);
                         cmd.Parameters.AddWithValue("@Phone", customer.Phone);
-                        cmd.Parameters.AddWithValue("@Fax", customer.Fax);
                         cmd.Parameters.AddWithValue("@Email", customer.Email);
-                        cmd.Parameters.AddWithValue("@SupportRepId", customer.SupportRepId);
                         success = cmd.ExecuteNonQuery() > 0 ? true : false;
                     }
                 }
