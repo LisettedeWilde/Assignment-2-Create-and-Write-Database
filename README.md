@@ -42,7 +42,7 @@ The project has been made with the following technologies and languages:
 
 ## Installation and Usage
 
-You will need SQL Server to be connected with SQL Server Management Studio. Afterwards you have to connect with the Chinook server which can be found at the top of this readme. Lasty, don't forget to change the datasource of the  ```connectionstringbuilder```  to connect with the server.
+You will need SQL Server to be connected with SQL Server Management Studio. Afterwards you have to connect with the Chinook server which can be found at the top of this readme. Lastly, don't forget to change the datasource of the  ```connectionstringbuilder```  to connect with the server.
 
 1. Clone the project repository
 
