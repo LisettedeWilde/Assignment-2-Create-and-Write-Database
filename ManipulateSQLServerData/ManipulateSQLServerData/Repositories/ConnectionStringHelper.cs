@@ -12,7 +12,7 @@ namespace ManipulateSQLServerData.Repositories
         public static string GetConnectionString()
         {
             SqlConnectionStringBuilder connectionStringBuilder = new SqlConnectionStringBuilder();
-            connectionStringBuilder.DataSource = "MURAT-LAPTOP\\SQLEXPRESS";
+            connectionStringBuilder.DataSource = "CEREBRO";
             connectionStringBuilder.InitialCatalog = "Chinook";
             connectionStringBuilder.IntegratedSecurity = true;
             connectionStringBuilder.TrustServerCertificate = true;

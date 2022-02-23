@@ -186,7 +186,8 @@ namespace ManipulateSQLServerData.Repositories
                 Console.WriteLine(ex.Message);
             }
 
-            return customers.Skip(offset).Take(limit).ToList();
+            //return customers.Skip(offset).Take(limit).ToList();
+            return customers;
         }
 
 
@@ -224,11 +225,12 @@ namespace ManipulateSQLServerData.Repositories
         }
 
         // 6. Update an existing customer.
-        public bool UpdateCustomer(Customer customer)
+        public bool UpdateCustomer(int id, Customer customer)
         {
             bool success = false;
             string sql = "UPDATE Customer " +
-                         "SET FirstName=@FirstName,LastName=@LastName, Country=@Country, PostalCode=@PostalCode,Phone=@Phone, Email=@Email";
+                         "SET FirstName=@FirstName,LastName=@LastName, Country=@Country, PostalCode=@PostalCode,Phone=@Phone, Email=@Email " +
+                         "WHERE CustomerId = @customerId";
             try
             {
                 //connection
@@ -241,6 +243,7 @@ namespace ManipulateSQLServerData.Repositories
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
                         //handle result
+                        cmd.Parameters.AddWithValue("@customerId", id);
                         cmd.Parameters.AddWithValue("@FirstName", customer.FirstName);
                         cmd.Parameters.AddWithValue("@LastName", customer.LastName);
                         cmd.Parameters.AddWithValue("@Country", customer.Country);
@@ -299,9 +302,11 @@ namespace ManipulateSQLServerData.Repositories
         public List<CustomerSpender> TopSpenders()
         {
             List<CustomerSpender> spenders = new List<CustomerSpender>();
-            string sql = "SELECT CUSTOMER.CustomerId, CUSTOMER.LastName, INVOICE.Total FROM INVOICE" +
-                         "   INNER JOIN CUSTOMER ON INVOICE.CustomerId = CUSTOMER.CustomerId" +
-                         "   ORDER BY INVOICE.Total DESC";
+            string sql = "SELECT CUSTOMER.CustomerId, CUSTOMER.LastName, SUM(INVOICE.Total) FROM INVOICE " +
+                         "INNER JOIN CUSTOMER ON INVOICE.CustomerId = CUSTOMER.CustomerId " +
+                         "GROUP BY CUSTOMER.CustomerId, CUSTOMER.LastName " +
+                         "ORDER BY SUM(INVOICE.Total) DESC";
+
             try
             {
                 //connection

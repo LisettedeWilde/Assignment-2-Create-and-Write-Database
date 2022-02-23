@@ -48,10 +48,11 @@ namespace ManipulateSQLServerData.Repositories
         /// <summary>
         /// Update existing user in database.
         /// </summary>
+        /// <param name="id">The id of the customer that gets updated</param>
         /// <param name="customer">The customer.</param>
         /// <returns>Update selected customer's phone number and email address. 
         /// This method returns updated customer if customer is successifully updated, or null if customer update failed.</returns>
-        public bool UpdateCustomer(Customer customer);
+        public bool UpdateCustomer(int id, Customer customer);
 
         /// <summary>
         /// Gets the number of customers in each country

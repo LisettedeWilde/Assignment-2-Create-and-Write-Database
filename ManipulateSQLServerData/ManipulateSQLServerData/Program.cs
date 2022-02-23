@@ -21,7 +21,16 @@ namespace ManipulateSQLServerData
         {
             PrintCustomers(repository.GetAllCustomers());
         }
-        
+
+        /// <summary>
+        /// Prints the result from GetCustomer to the console
+        /// </summary>
+        /// <param name="repository"></param>
+        static void TestSelectById(ICustomerRepository repository)
+        {
+            PrintCustomer(repository.GetCustomer(1));
+        }
+
         /// <summary>
         /// Prints the result from GetCustomerByName to the console
         /// </summary>
@@ -29,6 +38,15 @@ namespace ManipulateSQLServerData
         static void TestSelectByName(ICustomerRepository repository)
         {
             PrintCustomer(repository.GetCustomerByName("Tim", "Goyer"));
+        }
+
+        /// <summary>
+        /// Prints the result from GetPageOfCustomers to the console, which is a section from the customer table
+        /// </summary>
+        /// <param name="repository"></param>
+        static void TestSelectPage(ICustomerRepository repository)
+        {
+            PrintCustomers(repository.GetPageOfCustomers(5, 10));
         }
 
         /// <summary>
@@ -57,6 +75,31 @@ namespace ManipulateSQLServerData
         }
 
         /// <summary>
+        /// Checks whether the customer gets updated correctly in the database with the method UpdateCustomer, writes a message to the console whether the update was successful
+        /// </summary>
+        /// <param name="repository"></param>
+        static void TestUpdate(ICustomerRepository repository)
+        {
+            Customer test = new Customer()
+            {
+                FirstName = "Harry",
+                LastName = "Potter",
+                Country = "Britain",
+                PostalCode = "5208",
+                Phone = "06 12345678",
+                Email = "wizard@apple.com"
+            };
+            if (repository.UpdateCustomer(3, test))
+            {
+                Console.WriteLine("Successfully updated customer in database");
+            }
+            else
+            {
+                Console.WriteLine("Failed to updated customer in database");
+            }
+        }
+
+        /// <summary>
         /// Prints the result from GetNumberOfCustomersPerCountry to the console
         /// </summary>
         /// <param name="repository"></param>
@@ -67,6 +110,20 @@ namespace ManipulateSQLServerData
             foreach (KeyValuePair<string, int> country in result)
             {
                 Console.WriteLine($"{country.Key} {country.Value}");
+            }
+        }
+
+        /// <summary>
+        /// Prints the result of TopSpenders to the console
+        /// </summary>
+        /// <param name="repository"></param>
+        static void TestGetHighestSpenders(ICustomerRepository repository)
+        {
+            List<CustomerSpender> spenders = repository.TopSpenders();
+
+            foreach (CustomerSpender spender in spenders)
+            {
+                Console.WriteLine($"{spender.CustomerId} {spender.LastName} {spender.Total}");
             }
         }
 
