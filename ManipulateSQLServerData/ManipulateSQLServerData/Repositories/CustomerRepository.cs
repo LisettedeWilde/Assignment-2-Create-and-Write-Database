@@ -10,6 +10,7 @@ namespace ManipulateSQLServerData.Repositories
 {
     public class CustomerRepository : ICustomerRepository
     {
+        // 1.
         public List<Customer> GetAllCustomers()
         {
             List<Customer> custList = new List<Customer>();
@@ -51,6 +52,7 @@ namespace ManipulateSQLServerData.Repositories
             return custList;
         }
 
+        // 3.
         public Customer GetCustomerByName(string fName, string lName)
         {
             Customer customer = new Customer();
@@ -93,6 +95,7 @@ namespace ManipulateSQLServerData.Repositories
             return customer;
         }
 
+        // 5.
         public bool AddNewCustomer(Customer customer)
         {
             bool success = false;
@@ -100,9 +103,11 @@ namespace ManipulateSQLServerData.Repositories
                 "VALUES(@FirstName,@LastName,@Country,@PostalCode,@Phone,@Email)";
             try
             {
+                // Connect
                 using (SqlConnection connection = new SqlConnection(ConnectionStringHelper.GetConnectionString()))
                 {
                     connection.Open();
+                    // make a command
                     using (SqlCommand cmd = new SqlCommand(sql, connection))
                     {
                         cmd.Parameters.AddWithValue("@FirstName", customer.FirstName);
@@ -111,6 +116,7 @@ namespace ManipulateSQLServerData.Repositories
                         cmd.Parameters.AddWithValue("@PostalCode", customer.PostalCode);
                         cmd.Parameters.AddWithValue("@Phone", customer.Phone);
                         cmd.Parameters.AddWithValue("@Email", customer.Email);
+                        // check whether the customer has been added (by checking if the number of affected rows is higher than 0)
                         success = cmd.ExecuteNonQuery() > 0 ? true : false;
                     }
                 }
@@ -122,6 +128,7 @@ namespace ManipulateSQLServerData.Repositories
             return success;
         }
 
+        // 7.
         public Dictionary<string, int> GetNumberOfCustomersPerCountry()
         {
             Dictionary<string, int> countriesCount = new Dictionary<string, int>();
@@ -158,6 +165,7 @@ namespace ManipulateSQLServerData.Repositories
             return countriesCount;
         }
 
+        // 9.
         public string GetFavoriteGenre(int id)
         {
             string result = "";
