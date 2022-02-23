@@ -10,7 +10,7 @@ namespace ManipulateSQLServerData.Repositories
 {
     public class CustomerRepository : ICustomerRepository
     {
-        // 1.
+        // 1. read all customers in the database
         public List<Customer> GetAllCustomers()
         {
             List<Customer> custList = new List<Customer>();
@@ -52,7 +52,7 @@ namespace ManipulateSQLServerData.Repositories
             return custList;
         }
 
-        // 3.
+        // 3. read a specific customer by name from the database
         public Customer GetCustomerByName(string fName, string lName)
         {
             Customer customer = new Customer();
@@ -95,7 +95,7 @@ namespace ManipulateSQLServerData.Repositories
             return customer;
         }
 
-        // 5.
+        // 5.  add a new customer to the database
         public bool AddNewCustomer(Customer customer)
         {
             bool success = false;
@@ -128,7 +128,7 @@ namespace ManipulateSQLServerData.Repositories
             return success;
         }
 
-        // 7.
+        // 7. return the number of customers in each country
         public Dictionary<string, int> GetNumberOfCustomersPerCountry()
         {
             Dictionary<string, int> countriesCount = new Dictionary<string, int>();
@@ -165,7 +165,7 @@ namespace ManipulateSQLServerData.Repositories
             return countriesCount;
         }
 
-        // 9.
+        // 9. return the favorite genre(s) of a given customer
         public string GetFavoriteGenre(int id)
         {
             string result = "";
