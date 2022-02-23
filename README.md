@@ -2,7 +2,7 @@
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/LisettedeWilde/Assignment-2-Create-and-Write-Database)
 
-[Chinook SQL Script](Chinook_SqlServer_AutoIncrementPKs.sql)
+[Chinook SQL Script](https://lms.noroff.no/pluginfile.php/184704/mod_assign/introattachment/0/Chinook_SqlServer_AutoIncrementPKs.sql?forcedownload=1)
 
 ## Table of Contents
 
