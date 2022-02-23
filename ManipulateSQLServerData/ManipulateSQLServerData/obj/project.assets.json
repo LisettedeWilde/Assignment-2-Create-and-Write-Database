@@ -2306,23 +2306,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Lisette\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\wildb\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "X:\\Noroff\\Noroff Assignments\\Assignments - Backend .NET\\Assignment 2 - Database\\Assignment-2-Create-and-Write-Database\\ManipulateSQLServerData\\ManipulateSQLServerData\\ManipulateSQLServerData.csproj",
+      "projectUniqueName": "C:\\Users\\wildb\\Documents\\Noroff\\Noroff Assignments\\Assignment 2 - Databases\\Assignment-2-Create-and-Write-Database\\ManipulateSQLServerData\\ManipulateSQLServerData\\ManipulateSQLServerData.csproj",
       "projectName": "ManipulateSQLServerData",
-      "projectPath": "X:\\Noroff\\Noroff Assignments\\Assignments - Backend .NET\\Assignment 2 - Database\\Assignment-2-Create-and-Write-Database\\ManipulateSQLServerData\\ManipulateSQLServerData\\ManipulateSQLServerData.csproj",
-      "packagesPath": "C:\\Users\\Lisette\\.nuget\\packages\\",
-      "outputPath": "X:\\Noroff\\Noroff Assignments\\Assignments - Backend .NET\\Assignment 2 - Database\\Assignment-2-Create-and-Write-Database\\ManipulateSQLServerData\\ManipulateSQLServerData\\obj\\",
+      "projectPath": "C:\\Users\\wildb\\Documents\\Noroff\\Noroff Assignments\\Assignment 2 - Databases\\Assignment-2-Create-and-Write-Database\\ManipulateSQLServerData\\ManipulateSQLServerData\\ManipulateSQLServerData.csproj",
+      "packagesPath": "C:\\Users\\wildb\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\wildb\\Documents\\Noroff\\Noroff Assignments\\Assignment 2 - Databases\\Assignment-2-Create-and-Write-Database\\ManipulateSQLServerData\\ManipulateSQLServerData\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Lisette\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\wildb\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2368,7 +2369,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
       }
     }
   }
