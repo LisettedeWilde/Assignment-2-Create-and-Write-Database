@@ -1,35 +1,65 @@
 # Assignment-2-Create-and-Write-Database
 
-Foobar is a Python library for dealing with word pluralization.
+![GitHub repo size](https://img.shields.io/github/repo-size/LisettedeWilde/Assignment-2-Create-and-Write-Database)
 
-# Appendix A: SQL scripts to create database
+[Chinook SQL Script](https://lms.noroff.no/pluginfile.php/184704/mod_assign/introattachment/0/Chinook_SqlServer_AutoIncrementPKs.sql?forcedownload=1)
 
-## Description
-Appendix A contains several scripts which can be run to create a database, setup some tables in the databsase, add relationships to the tables, and then populate the tables with data.
+## Table of Contents
 
-## Installation
+- [General Information](#general-information)
+- [Technologies](#technologies)
+- [Installation and Usage](#installation-and-usage)
+- [Contributors](#contributors)
 
-Install SQL Server Management Studio (SSMS) from the website https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15.
+## General Information
 
+Module Assignment: Data persistence and access
 
-## Usage
-Execute the .sql files one by on in SSMS to create the SuperheroDb database, add entries to the database and execute some basic CRUD operations on the database.
+For the first appendix of this assignment we have created a database using SQL. For the second appendix, we created a C# application to access data from a database using a repository pattern.
 
-# Appendix B: Reading data with SQL Client
+The C# application uses a variety of 9 different methods which can be used to interact with the database.
+The methods can be used for the following:
 
-## Description
-Application which manipulates SQL Server data in Visual Studio using the library SQL Client. 
+1. Read all customers from database.
+2. Read individual customer by customer id from database.
+3. Read customer with matching part of name. 
+4. Read page of customers. This method returns limit value of customers, starting from offset value.
+5. Create new customer to the database. Add following fields to new customer: first name, last name, country, postal code, phone number and email. 
+6. Update existing user in database. Update selected customer's phone number and email address. This method returns updated customer if customer is successifully updated, or null if customer update failed.
+7. Read countries with amount of customers from database. This method returns all countries with customers in it, along with amount of customers, in descending order (highest to lowest).
+8. Read highest spending customers from database. This method returns highest spending customers in descending order (highest to lowest).
+9. Read selected customer's most popular genre. This method returns selected customer's most popular genre. In case of tie, return both of genres.
 
-## Installation
-Install Visual Studio 2019.
-Open the project in Visual Studio via the .sln file.
-Change the Datasource for the ConnectionStringBuillding on line 15 in the ConnectionStringBuilder class.
-``
-connectionStringBuilder.DataSource = "YourDataSource";
-``
+## Technologies
 
-## Usage
+The project has been made with the following technologies and languages:
 
+- C#
 
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
+- .NET 5.0
+
+- SQL Server
+
+## Installation and Usage
+
+You will need SQL Server to be connected with SQL Server Management Studio. Afterwards you have to connect with the Chinook server which can be found at the top of this readme. Lastly, don't forget to change the datasource of the  ```connectionstringbuilder```  to connect with the server.
+
+1. Clone the project repository
+
+```sh
+git clone https://github.com/LisettedeWilde/Assignment-2-Create-and-Write-Database.git
+```
+
+2. Open project with Visual Studio.
+
+3. Navigate to *Program.cs*.
+
+4. Add breakpoint for each *return* statement.
+
+5. Click *Start* icon along with project name in top bar to see returned data.
+
+## Contributors
+
+[Lisette de Wilde (@lisettedewilde)](https://github.com/LisettedeWilde)
+
+[Murat Sahin (@m-sahin)](https://github.com/m-sahin)
