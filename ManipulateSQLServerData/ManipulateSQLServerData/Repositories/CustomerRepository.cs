@@ -16,18 +16,23 @@ namespace ManipulateSQLServerData.Repositories
             Customer customer = new Customer();
             string sql = "SELECT CustomerId,FirstName,LastName,Country,PostalCode,Phone,Email FROM Customer Where CustomerId = @CustomerId";
             try
-            {
+            {   
+                //connect
                 using (SqlConnection conn = new SqlConnection(ConnectionStringHelper.GetConnectionString()))
                 {
                     conn.Open();
 
+                    //make a command
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
                         cmd.Parameters.AddWithValue("@CustomerId", id);
+
+                        //Reader
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
                             {
+                                //Handle result
                                 customer.CustomerId = reader.GetInt32(0);
                                 customer.FirstName = reader.GetString(1);
                                 customer.LastName = reader.GetString(2);
@@ -55,18 +60,23 @@ namespace ManipulateSQLServerData.Repositories
             string sql = "SELECT * FROM Customer";
             try
             {
+                //connect
                 using (SqlConnection conn = new SqlConnection(ConnectionStringHelper.GetConnectionString()))
                 {
                     conn.Open();
 
+                    //make a command
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
                         cmd.Parameters.AddWithValue("@Offset", offset);
                         cmd.Parameters.AddWithValue("@limit", limit);
+
+                        //Reader
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
                             {
+                                //handle result
                                 Customer customer = new Customer();
                                 customer.CustomerId = reader.GetInt32(0);
                                 customer.FirstName = (!reader.IsDBNull(1) ? reader.GetString(1) : "");
@@ -98,11 +108,16 @@ namespace ManipulateSQLServerData.Repositories
                          ",Country=@Country,PostalCode=@PostalCode,Phone=@Phone,Fax=@Fax,Email=@Email,SupportRepId=@SupportRepId";
             try
             {
+                //connection
                 using (SqlConnection conn = new SqlConnection(ConnectionStringHelper.GetConnectionString()))
                 {
+                    //make a command
                     conn.Open();
+
+                    //reader
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
+                        //handle result
                         cmd.Parameters.AddWithValue("@FirstName", customer.FirstName);
                         cmd.Parameters.AddWithValue("@LastName", customer.LastName);
                         cmd.Parameters.AddWithValue("@Company", customer.Company);
@@ -134,15 +149,19 @@ namespace ManipulateSQLServerData.Repositories
                          "   ORDER BY INVOICE.Total DESC";
             try
             {
+                //connection
                 using (SqlConnection conn = new SqlConnection(ConnectionStringHelper.GetConnectionString()))
                 {
                     conn.Open();
+                    //make a command
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
+                        //reader
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
                             {
+                                //handle result
                                 CustomerSpender customerSpender = new CustomerSpender();
                                 customerSpender.CustomerId = reader.GetInt32(0);
                                 customerSpender.LastName = reader.GetString(1);

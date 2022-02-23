@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace ManipulateSQLServerData.Repositories
 {
     public class ConnectionStringHelper
-    {
+    {   
         public static string GetConnectionString()
         {
             SqlConnectionStringBuilder connectionStringBuilder = new SqlConnectionStringBuilder();
