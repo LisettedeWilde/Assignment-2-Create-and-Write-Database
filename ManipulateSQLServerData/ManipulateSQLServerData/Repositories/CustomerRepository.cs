@@ -172,5 +172,7 @@ namespace ManipulateSQLServerData.Repositories
             {
                 Console.WriteLine(ex.Message);
             }
+            return spenders;
+        }
     }
 }
