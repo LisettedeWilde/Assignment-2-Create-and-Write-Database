@@ -14,7 +14,7 @@ namespace ManipulateSQLServerData.Repositories
         /// </summary>
         /// <returns>A list of Customers with their id, first name, last name, country, postal code, phone number and email</returns>
         public List<Customer> GetAllCustomers();
-        public Customer GetCustomer(string id);
+        public Customer GetCustomer(int id);
         /// <summary>
         /// Reads a specific customer by name
         /// </summary>
