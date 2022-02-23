@@ -10,7 +10,6 @@ namespace ManipulateSQLServerData
         static void Main(string[] args)
         {
             ICustomerRepository repository = new CustomerRepository();
-            TestGetFavoriteGenre(repository);
         }
 
         /// <summary>
