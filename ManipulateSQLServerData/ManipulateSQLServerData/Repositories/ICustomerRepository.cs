@@ -14,7 +14,14 @@ namespace ManipulateSQLServerData.Repositories
         /// </summary>
         /// <returns>A list of Customers with their id, first name, last name, country, postal code, phone number and email</returns>
         public List<Customer> GetAllCustomers();
+                
+        /// <summary>
+        /// Read individual customer by customer id from database.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns>This method returns: customer's id, first name, last name, country, postal code, phone number and email address.</returns>
         public Customer GetCustomer(int id);
+        
         /// <summary>
         /// Reads a specific customer by name
         /// </summary>
@@ -22,20 +29,40 @@ namespace ManipulateSQLServerData.Repositories
         /// <param name="lName">last name</param>
         /// <returns>A customer with their id, first name, last name, country, postal ccode, phone number and email</returns>
         public Customer GetCustomerByName(string fName, string lName);
+                
+        /// <summary>
+        /// Read page of customers.
+        /// </summary>
+        /// <param name="limit">The limit.</param>
+        /// <param name="offset">The offset.</param>
+        /// <returns>This method returns a list of limit value of customers, starting from offset value.</returns>
         public List<Customer> GetPageOfCustomers(int limit, int offset);
+        
         /// <summary>
         /// Adds a new customer to the database
         /// </summary>
         /// <param name="customer">Customer variable to be added to the database</param>
         /// <returns>A boolean value based on if the addition of the customer to the database was successfull</returns>
         public bool AddNewCustomer(Customer customer);
+                
+        /// <summary>
+        /// Update existing user in database.
+        /// </summary>
+        /// <param name="customer">The customer.</param>
+        /// <returns>Update selected customer's phone number and email address. 
+        /// This method returns updated customer if customer is successifully updated, or null if customer update failed.</returns>
         public bool UpdateCustomer(Customer customer);
 
         /// <summary>
         /// Gets the number of customers in each country
         /// </summary>
         /// <returns>Returns a dictionary with the country as key value and the number of entries in that country as the value</returns>
-        public Dictionary<string, int> GetNumberOfCustomersPerCountry();
+        public Dictionary<string, int> GetNumberOfCustomersPerCountry();        
+        
+        /// <summary>
+        /// Gets a list of customers that spend the most.
+        /// </summary>
+        /// <returns>This method returns highest spending customers in descending order (highest to lowest).</returns>
         public List<CustomerSpender> TopSpenders();
 
         /// <summary>
